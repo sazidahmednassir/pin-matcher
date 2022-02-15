@@ -3,6 +3,11 @@
 
 let submitBtn = document.getElementById('submit_btn')
 let calcInput = document.getElementById('typed-numbers');
+let left=document.getElementById('left');
+left.innerText=3;
+
+
+
 
 
 
@@ -38,7 +43,7 @@ document.getElementById('key-pad').addEventListener('click', function (event) {
         const previousNumber = calcInput.value;
         const newNumber = previousNumber + number;
         calcInput.value = newNumber;
-        left.innerHTML--
+        
         
       
         
@@ -56,6 +61,7 @@ function verifyPin() {
     const typedNumbers = document.getElementById('typed-numbers').value;
     const successMessage = document.getElementById('notify-success');
     const failError = document.getElementById('notify-fail');
+    let left=document.getElementById('left').innerText;
     if (pin == typedNumbers) {
         calcInput.value = '';
         successMessage.style.display = 'block';
@@ -67,15 +73,25 @@ function verifyPin() {
         successMessage.style.display = 'none';
         failError.style.display = 'block';
         calcInput.value = '';
-        left.innerHTML--;
         
+        
+        
+       
+       
+            left =left-1;
+           let sp= document.getElementById('left').innerText=left;
+           if(parseInt(sp)== 0){
+            submitBtn.disabled = true;
+           }
+       
+        
+        
+        
+       
         
     }
-
-    // if (parseInt(left.innerHTML) == 0) {
-    //     submitBtn.disabled = true
-    // }
-    
+   
+   
 }
 
 
