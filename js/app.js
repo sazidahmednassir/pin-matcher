@@ -73,12 +73,7 @@ function verifyPin() {
         successMessage.style.display = 'none';
         failError.style.display = 'block';
         calcInput.value = '';
-        
-        
-        
-       
-       
-            left =left-1;
+         left =left-1;
            let sp= document.getElementById('left').innerText=left;
            if(parseInt(sp)== 0){
             submitBtn.disabled = true;
