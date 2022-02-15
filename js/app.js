@@ -1,3 +1,11 @@
+
+
+
+let submitBtn = document.getElementById('submit_btn')
+let calcInput = document.getElementById('typed-numbers');
+
+
+
 function getPin() {
     const pin = Math.round(Math.random() * 10000);
     const pinString = pin + '';
@@ -10,6 +18,8 @@ function getPin() {
     }
 }
 
+
+
 function generatePin() {
     const pin = getPin();
     document.getElementById('display-pin').value = pin;
@@ -18,7 +28,7 @@ function generatePin() {
 
 document.getElementById('key-pad').addEventListener('click', function (event) {
     const number = event.target.innerText;
-    const calcInput = document.getElementById('typed-numbers');
+    let calcInput = document.getElementById('typed-numbers');
     if (isNaN(number)) {
         if (number == 'C') {
             calcInput.value = '';
@@ -28,8 +38,16 @@ document.getElementById('key-pad').addEventListener('click', function (event) {
         const previousNumber = calcInput.value;
         const newNumber = previousNumber + number;
         calcInput.value = newNumber;
+        left.innerHTML--
+        
+      
+        
         
     }
+
+    
+    
+    
 });
 
 
@@ -39,11 +57,25 @@ function verifyPin() {
     const successMessage = document.getElementById('notify-success');
     const failError = document.getElementById('notify-fail');
     if (pin == typedNumbers) {
+        calcInput.value = '';
         successMessage.style.display = 'block';
         failError.style.display = 'none';
+        
     }
     else {
+       
         successMessage.style.display = 'none';
         failError.style.display = 'block';
+        calcInput.value = '';
+        left.innerHTML--;
+        
+        
     }
+
+    // if (parseInt(left.innerHTML) == 0) {
+    //     submitBtn.disabled = true
+    // }
+    
 }
+
+
